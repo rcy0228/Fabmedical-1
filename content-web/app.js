@@ -3,11 +3,11 @@ const http = require('http');
 const path = require('path');
 const request = require('request');
 
+const app = express();
+
 const appInsights = require("applicationinsights");
 appInsights.setup("54d20353-637f-4360-9004-3e77786af664");
 appInsights.start();
-
-const app = express();
 
 app.use(express.static(path.join(__dirname, 'dist/content-web')));
 const contentApiUrl = process.env.CONTENT_API_URL || "http://localhost:3001";
